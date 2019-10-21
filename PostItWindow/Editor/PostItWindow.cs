@@ -5,6 +5,9 @@ using UnityEditor;
 
 namespace PostIt
 {
+	/// <summary>
+	/// PostItAssets Editor Window.
+	/// </summary>
 	public class PostItWindow : EditorWindow
 	{
 		[MenuItem("Window/Post-It-Assets/Open Window")]
@@ -13,6 +16,9 @@ namespace PostIt
 			GetWindow<PostItWindow>("Post-It-Assets");
 		}
 
+		/// <summary>
+		/// Load data from EditorPrefs.
+		/// </summary>
 		private void OnEnable()
 		{
 			wantsMouseMove = wantsMouseEnterLeaveWindow = true;
@@ -33,6 +39,9 @@ namespace PostIt
 			}
 		}
 
+		/// <summary>
+		/// Save data via EditorPrefs.
+		/// </summary>
 		private void OnDisable()
 		{
 			List<string> ordered = pathHashes.ToList();
@@ -48,6 +57,9 @@ namespace PostIt
 			}));
 		}
 
+		/// <summary>
+		/// Helper structure for saving.
+		/// </summary>
 		[System.Serializable]
 		struct JsonFormatter
 		{
@@ -55,6 +67,9 @@ namespace PostIt
 			public List<PostItData> datas;
 		}
 
+		/// <summary>
+		/// Structure for record datas.
+		/// </summary>
 		[System.Serializable]
 		struct PostItData
 		{
@@ -62,6 +77,7 @@ namespace PostIt
 			public string note;
 		}
 
+		#region ====== Main GUI ======
 		NoteWindow noteWindow;
 		Dictionary<string, PostItData> postItDatas = new Dictionary<string, PostItData>();
 		HashSet<string> pathHashes = new HashSet<string>();
@@ -170,7 +186,11 @@ namespace PostIt
 			GUILayout.FlexibleSpace();
 			EditorGUILayout.HelpBox("Drag and drop asset into this window.", MessageType.None);
 		}
+		#endregion
 
+		/// <summary>
+		/// On Update Text.
+		/// </summary>
 		void UpdateText(string key, string note)
 		{
 			if (postItDatas.ContainsKey(key))

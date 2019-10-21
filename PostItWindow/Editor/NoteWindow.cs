@@ -3,14 +3,23 @@ using UnityEditor;
 
 namespace PostIt
 {
+	/// <summary>
+	/// Helper Window for PostItWindow.
+	/// </summary>
 	public class NoteWindow : EditorWindow
 	{
+		/// <summary>
+		/// Open Note window.
+		/// </summary>
 		public static NoteWindow Open()
 		{
 			var win = GetWindow<NoteWindow>("Note");
 			return win;
 		}
 
+		/// <summary>
+		/// Update Text.
+		/// </summary>
 		public void ShowText(string key, string text, System.Action<string, string> onChange)
 		{
 			this.key = key;
@@ -19,6 +28,9 @@ namespace PostIt
 			canEdit = true;
 		}
 
+		/// <summary>
+		/// Clear Window.
+		/// </summary>
 		public void Clear(string key)
 		{
 			if (this.key == key)

@@ -19,7 +19,7 @@ By default, Post-It-Assets is locate in Window/Post-It-Assets/Open Window.
 1. Why this project?  
 	A: Sometimes it is really hard to find assets in a large project, that's why this project existed.
 2. Can I share my data to others?  
-	A: No, all data only save in your machine.
+	A: No, currently all data are saved in local machine.
 
 
 ## License
