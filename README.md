@@ -1,4 +1,4 @@
-# Unity-Post-It-Assets
+# Post-It-Assets-For-Unity
 
 Finding assets the easy way.
 
